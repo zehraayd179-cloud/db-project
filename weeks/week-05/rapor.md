@@ -1,8 +1,8 @@
 # Ödev 1 Raporu
 
-- **Ad Soyad:** [Adını Soyadını Yaz]
-- **Öğrenci No:** [Öğrenci Numaranı Yaz]
-- **PR Bağlantısı:** https://github.com/Kullaniciadin/db-project/pull/1
+- **Ad Soyad:** Zehra Aydın
+- **Öğrenci No:** 202602009002
+- **PR Bağlantısı:** https://github.com/zehraayd179-cloud/db-project/pulls
 
 ---
 
