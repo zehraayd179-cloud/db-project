@@ -1,13 +1,18 @@
--- Soru 11: NULL avı
-SELECT count(*) AS satir_sayisi,
-       count(battery_level) AS batarya_dolu
-FROM robots;
--- 10 | 9, yani bir robotun bataryası bilinmiyor (Kartal-04, sensör arızası).
--- Bu tek boşluk ortalamayı doğrudan etkiliyor.
+-- =========================================================================
+-- ÖDEV 2: İlişkisel Cebir Karşılıkları ve SQL Sorguları
+-- =========================================================================
 
--- Soru 12: Gruplama ve Ortalama
-SELECT model, avg(battery_level) AS ortalama_batarya
-FROM robots
-GROUP BY model;
--- Çeşitli modellere göre ortalama batarya seviyelerini gösteriyor.
--- Eksik (NULL) değerler AVG fonksiyonu tarafından hesaba katılmadığı için oranlar yanıltıcı olabilir.
+-- SORGU 1: Fiyatı 1000 TL'den büyük olan ürünleri listeleme (Select / Selection σ)
+SELECT * FROM urunler WHERE fiyat > 1000.00;
+
+-- SORGU 2: Belirli bir müşterinin sipariş ettiği ürünlerin adını ve adetini bulma (Join / ⨝ ve Projection π)
+SELECT m.ad_soyad, u.urun_adi, s.adet, s.siparis_tarihi
+FROM siparisler s
+JOIN musteriler m ON s.musteri_id = m.musteri_id
+JOIN urunler u ON s.urun_id = u.urun_id;
+
+-- SORGU 3: Toplam sipariş adedine göre gruplama (Aggregation / Grupçul İşlemler)
+SELECT u.urun_adi, SUM(s.adet) AS toplam_satis_adedi
+FROM siparisler s
+JOIN urunler u ON s.urun_id = u.urun_id
+GROUP BY u.urun_adi;
